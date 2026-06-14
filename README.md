@@ -21,7 +21,15 @@ The reusable skill is packaged at `skills/sales-psychometric-profile`. It includ
 - `agents/openai.yaml` with user-facing skill metadata
 - `references/ethical-boundaries.md` with safety boundaries for sales use
 
-To install it locally from this repo:
+To install it from GitHub:
+
+```bash
+git clone git@github.com:ihrushi/customer-personality-profile.git
+mkdir -p ~/.codex/skills
+cp -R customer-personality-profile/skills/sales-psychometric-profile ~/.codex/skills/
+```
+
+If you already have the repo locally, install from the checkout:
 
 ```bash
 mkdir -p ~/.codex/skills
