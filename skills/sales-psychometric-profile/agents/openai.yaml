@@ -1,0 +1,4 @@
+interface:
+  display_name: "Sales Psychometric Profile"
+  short_description: "Score writing style with OCEAN metrics for sales engagement."
+  default_prompt: "Analyze this writing sample and create a sales engagement profile."

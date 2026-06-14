@@ -13,6 +13,23 @@ Open `ocean-profile-report.html` to view the polished customer profile report fo
 - Free-form seller observations and instances
 - Raw data used, including customer text and seller notes
 
+## Reusable Codex skill
+
+The reusable skill is packaged at `skills/sales-psychometric-profile`. It includes:
+
+- `SKILL.md` with the OCEAN profiling workflow and output format
+- `agents/openai.yaml` with user-facing skill metadata
+- `references/ethical-boundaries.md` with safety boundaries for sales use
+
+To install it locally from this repo:
+
+```bash
+mkdir -p ~/.codex/skills
+cp -R skills/sales-psychometric-profile ~/.codex/skills/
+```
+
+After installation, ask Codex to use `sales-psychometric-profile` and paste the customer or prospect writing sample.
+
 ## Additional workspace
 
 `index.html` contains the broader Oracle Analytica workspace for OCI sales plays and professional-signal analysis.
