@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Customer Personality Profile | Daniel Harper</title>
+    <link rel="stylesheet" href="ocean-profile.css?v=5" />
+    <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
+    <script src="ocean-profile.js?v=5" defer></script>
+  </head>
+  <body>
+    <svg class="icon-sprite" aria-hidden="true">
+      <symbol id="icon-print" viewBox="0 0 24 24">
+        <path d="M6 9V3h12v6" />
+        <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2" />
+        <path d="M6 14h12v7H6z" />
+      </symbol>
+      <symbol id="icon-copy" viewBox="0 0 24 24">
+        <rect x="9" y="9" width="11" height="11" rx="2" />
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+      </symbol>
+    </svg>
+
+    <main class="report-shell">
+      <header class="report-header">
+        <div class="title-block">
+          <p class="kicker">Sales Psychometric Profile</p>
+          <h1>Customer Personality Profile</h1>
+          <p class="subtitle">
+            Big Five / OCEAN model adapted for sales communication from writing-style signals.
+          </p>
+        </div>
+        <div class="header-actions" aria-label="Report actions">
+          <button class="action-button" id="copySummaryBtn" type="button">
+            <svg><use href="#icon-copy"></use></svg>
+            Copy
+          </button>
+          <button class="action-button primary" id="printBtn" type="button">
+            <svg><use href="#icon-print"></use></svg>
+            Print
+          </button>
+        </div>
+      </header>
+
+      <section class="summary-grid" aria-label="Profile metadata">
+        <div class="summary-item">
+          <span>Customer</span>
+          <strong>Daniel Harper</strong>
+        </div>
+        <div class="summary-item">
+          <span>Confidence</span>
+          <strong>Medium-high</strong>
+        </div>
+        <div class="summary-item wide">
+          <span>Scale</span>
+          <strong>Score is out of 5. Relative % is sample signal strength, not a population percentile.</strong>
+        </div>
+      </section>
+
+      <section class="dashboard-grid" aria-label="OCEAN metric dashboard">
+        <article class="visual-panel">
+          <div class="section-heading">
+            <p class="kicker">Metric Visualization</p>
+            <h2>Relative Signal Strength</h2>
+          </div>
+          <div id="radarChart" class="radar-chart" aria-label="OCEAN radar visualization"></div>
+        </article>
+
+        <article class="metrics-panel">
+          <div class="section-heading">
+            <p class="kicker">Metric Summary</p>
+            <h2>Sales Engagement Signals</h2>
+          </div>
+          <div class="metric-list" id="metricList"></div>
+        </article>
+      </section>
+
+      <section class="recommendation-grid" aria-label="Sales recommendation">
+        <article class="recommendation-block">
+          <span>Sales posture</span>
+          <p>Respond with empathy, ownership, exact next steps, and a realistic timeline.</p>
+        </article>
+        <article class="recommendation-block">
+          <span>Next move</span>
+          <p>Send a same-day update naming the owner, current status, resolution path, and ETA.</p>
+        </article>
+      </section>
+
+      <section class="notes-section" aria-label="Model caveat and skill credit">
+        <p>
+          <strong>Caveat:</strong> This is a writing-style read only, not a validated psychometric
+          assessment or a factual claim about the person's inner state.
+        </p>
+        <p>
+          <strong>Skill credit:</strong> Created by Hrushikesh Khopkar.
+          Feedback: <a href="mailto:Hrushikesh.khopkar@oracle.com">Hrushikesh.khopkar@oracle.com</a>.
+        </p>
+      </section>
+
+      <section class="input-section" aria-labelledby="additionalDetailsTitle">
+        <div class="section-heading">
+          <p class="kicker">Additional Input</p>
+          <h2 id="additionalDetailsTitle">Observations and Instances</h2>
+        </div>
+        <label class="input-field" for="additionalDetailsInput">
+          <span>Free-form seller notes</span>
+          <textarea
+            id="additionalDetailsInput"
+            placeholder="Type call observations, meeting behavior, buying committee context, objection examples, urgency signals, or any other instances you want included."
+          ></textarea>
+        </label>
+      </section>
+
+      <section class="raw-text-section" aria-labelledby="rawTextTitle">
+        <div class="section-heading">
+          <p class="kicker">Reference</p>
+          <h2 id="rawTextTitle">Raw Data Used</h2>
+        </div>
+        <pre id="rawText">Subject: Request for Immediate Review of My Account
+
+Dear Customer Support Team,
+
+I hope you are doing well. I am writing regarding the recent issue with my account access and the delayed response to my previous messages. I understand that teams can be busy, but I was surprised that a matter affecting a long-standing customer did not seem to receive closer attention.
+
+To avoid any confusion, I have attached the relevant screenshots and reference numbers again. The situation has already taken more time than expected, and I would appreciate it if this could now be handled by someone who can provide a clear resolution rather than another general update.
+
+I have always tried to be patient and cooperative, though I am sure you can understand why this experience has been disappointing. Please review the matter carefully and confirm the exact steps being taken, along with a realistic timeline for completion.
+
+I trust your team will treat this with the seriousness it deserves. I look forward to hearing from you today and hope we can resolve this without needing to escalate it further.
+
+Thank you for your prompt attention to this matter and for ensuring it is addressed.
+
+Regards,
+Daniel Harper</pre>
+      </section>
+    </main>
+
+    <div class="toast" id="toast" role="status" aria-live="polite">Copied</div>
+  </body>
+</html>

@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Oracle Analytica</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <svg class="icon-sprite" aria-hidden="true">
+      <symbol id="icon-layers" viewBox="0 0 24 24">
+        <path d="M12 3 3 8l9 5 9-5-9-5Z" />
+        <path d="m3 12 9 5 9-5" />
+        <path d="m3 16 9 5 9-5" />
+      </symbol>
+      <symbol id="icon-radar" viewBox="0 0 24 24">
+        <path d="M20 12a8 8 0 1 1-8-8" />
+        <path d="M12 12 20 4" />
+        <path d="M16 8a6 6 0 0 1 2 4" />
+        <circle cx="12" cy="12" r="2" />
+      </symbol>
+      <symbol id="icon-copy" viewBox="0 0 24 24">
+        <rect x="9" y="9" width="11" height="11" rx="2" />
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+      </symbol>
+      <symbol id="icon-download" viewBox="0 0 24 24">
+        <path d="M12 3v12" />
+        <path d="m7 10 5 5 5-5" />
+        <path d="M5 21h14" />
+      </symbol>
+      <symbol id="icon-reset" viewBox="0 0 24 24">
+        <path d="M3 12a9 9 0 1 0 3-6.7" />
+        <path d="M3 4v6h6" />
+      </symbol>
+      <symbol id="icon-wand" viewBox="0 0 24 24">
+        <path d="m15 4 5 5" />
+        <path d="m14 5 5 5-9 9-5-5 9-9Z" />
+        <path d="M5 4v3" />
+        <path d="M3.5 5.5h3" />
+        <path d="M19 17v3" />
+        <path d="M17.5 18.5h3" />
+      </symbol>
+      <symbol id="icon-shield" viewBox="0 0 24 24">
+        <path d="M12 2 4 5v6c0 5 3.4 9.7 8 11 4.6-1.3 8-6 8-11V5l-8-3Z" />
+      </symbol>
+      <symbol id="icon-cloud" viewBox="0 0 24 24">
+        <path d="M17.5 19H8a5 5 0 1 1 1-9.9 6 6 0 0 1 11 3.2A3.5 3.5 0 0 1 17.5 19Z" />
+      </symbol>
+      <symbol id="icon-database" viewBox="0 0 24 24">
+        <ellipse cx="12" cy="5" rx="8" ry="3" />
+        <path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5" />
+        <path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3" />
+      </symbol>
+      <symbol id="icon-message" viewBox="0 0 24 24">
+        <path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4v8Z" />
+      </symbol>
+      <symbol id="icon-target" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="9" />
+        <circle cx="12" cy="12" r="5" />
+        <circle cx="12" cy="12" r="1.5" />
+      </symbol>
+      <symbol id="icon-alert" viewBox="0 0 24 24">
+        <path d="M12 2 2 21h20L12 2Z" />
+        <path d="M12 9v5" />
+        <path d="M12 18h.01" />
+      </symbol>
+      <symbol id="icon-link" viewBox="0 0 24 24">
+        <path d="M10 13a5 5 0 0 0 7.1 0l2.8-2.8a5 5 0 0 0-7.1-7.1l-1.6 1.6" />
+        <path d="M14 11a5 5 0 0 0-7.1 0l-2.8 2.8a5 5 0 0 0 7.1 7.1l1.6-1.6" />
+      </symbol>
+      <symbol id="icon-file-text" viewBox="0 0 24 24">
+        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z" />
+        <path d="M14 2v6h6" />
+        <path d="M8 13h8" />
+        <path d="M8 17h6" />
+      </symbol>
+    </svg>
+
+    <div class="scene" aria-hidden="true"></div>
+    <div class="grain" aria-hidden="true"></div>
+
+    <main class="app-shell">
+      <header class="topbar">
+        <div class="brand-lockup">
+          <span class="signal-mark" aria-hidden="true"></span>
+          <div>
+            <p class="eyebrow">Targeted Psychological Plays to Augment OCI Sales Plays</p>
+            <h1>Oracle Analytica</h1>
+          </div>
+        </div>
+        <nav class="top-actions" aria-label="App actions">
+          <button class="icon-button" id="resetBtn" type="button" title="Clear the workspace">
+            <svg><use href="#icon-reset"></use></svg>
+            <span>Reset</span>
+          </button>
+          <button class="icon-button" id="copyBtn" type="button" title="Copy the generated playbook">
+            <svg><use href="#icon-copy"></use></svg>
+            <span>Copy</span>
+          </button>
+          <button class="icon-button accent" id="exportBtn" type="button" title="Export the generated playbook to PDF">
+            <svg><use href="#icon-download"></use></svg>
+            <span>Export to PDF</span>
+          </button>
+        </nav>
+      </header>
+
+      <section class="workspace">
+        <aside class="panel ingest-panel" aria-labelledby="ingestTitle">
+          <div class="panel-heading">
+            <svg><use href="#icon-radar"></use></svg>
+            <div>
+              <p class="eyebrow">Input</p>
+              <h2 id="ingestTitle">Input Prospect details and your perspective</h2>
+            </div>
+          </div>
+
+          <div class="ingest-form">
+            <label class="field-block" for="linkedinUrlInput">
+              <span>1. Enter LinkedIn Profile</span>
+              <input id="linkedinUrlInput" type="url" placeholder="https://www.linkedin.com/in/prospect-name" />
+            </label>
+
+            <label class="field-block" for="profileInput">
+              <span>2. Enter any other public notes</span>
+              <textarea id="profileInput" spellcheck="true" placeholder="Paste About, role, recent activity, groups, posts, tech signals, mutual links, trigger events, public web findings, and company cloud context."></textarea>
+            </label>
+
+            <label class="field-block" for="frameworkSelect">
+              <span>3. Choose Profiling Model Framework</span>
+              <select id="frameworkSelect">
+                <option value="ocean">Big Five / OCEAN</option>
+                <option value="regulatory">Regulatory Focus Theory</option>
+                <option value="schwartz">Schwartz Values Theory</option>
+                <option value="adoption">Technology Adoption Lifecycle</option>
+              </select>
+            </label>
+
+            <div class="form-grid two">
+              <label class="field-block" for="personaSelect">
+                <span>4. Choose Buyer's Lens</span>
+                <select id="personaSelect">
+                  <option value="cio">CIO / IT strategy</option>
+                  <option value="cto">CTO / Engineering</option>
+                  <option value="ciso">CISO / Risk</option>
+                  <option value="cfo">CFO / Finance</option>
+                  <option value="data">Data / AI leader</option>
+                  <option value="infra">Infrastructure leader</option>
+                  <option value="apps">Applications leader</option>
+                </select>
+              </label>
+
+              <label class="field-block" for="stanceSelect">
+                <span>5. Enter Cloud Stance</span>
+                <select id="stanceSelect">
+                  <option value="unknown">Unknown</option>
+                  <option value="aws">AWS leaning</option>
+                  <option value="azure">Azure leaning</option>
+                  <option value="gcp">GCP leaning</option>
+                  <option value="multicloud">Multicloud</option>
+                  <option value="onprem">On-prem heavy</option>
+                </select>
+              </label>
+            </div>
+
+            <label class="field-block" for="triggerInput">
+              <span>6. Trigger event</span>
+              <input id="triggerInput" type="text" placeholder="Example: ERP modernization, data center exit, AI push, security audit" />
+            </label>
+
+            <label class="field-block" for="contentIntentSelect">
+              <span>7. Choose Content Intent</span>
+              <select id="contentIntentSelect">
+                <option value="educate">Educate without pitching</option>
+                <option value="challenge">Challenge status quo</option>
+                <option value="peer">Peer-learning angle</option>
+                <option value="invite">Invite discovery</option>
+              </select>
+            </label>
+
+            <div class="slider-row">
+              <label for="riskSlider">8. Choose Risk Appetite</label>
+              <input id="riskSlider" type="range" min="1" max="5" value="3" />
+              <output id="riskOutput" for="riskSlider">Balanced</output>
+            </div>
+
+            <fieldset class="signal-fieldset">
+              <legend>9. Choose Signals to Emphasise</legend>
+              <label><input type="checkbox" name="signal" value="ai" checked /> AI and data</label>
+              <label><input type="checkbox" name="signal" value="security" checked /> Security and compliance</label>
+              <label><input type="checkbox" name="signal" value="cost" checked /> Cost control</label>
+              <label><input type="checkbox" name="signal" value="oracle" checked /> Oracle estate</label>
+              <label><input type="checkbox" name="signal" value="performance" /> Performance</label>
+              <label><input type="checkbox" name="signal" value="sovereignty" /> Sovereignty</label>
+            </fieldset>
+          </div>
+
+        </aside>
+
+        <section class="analysis-stage" aria-labelledby="stageTitle">
+          <div class="stage-header">
+            <div>
+              <p class="eyebrow">Output</p>
+              <h2 id="stageTitle">Psychological Profile and Targeted Plays</h2>
+            </div>
+            <p class="trust-note">Non-clinical inference from public professional signals. Validate in research and discovery.</p>
+          </div>
+
+          <label class="field-block stage-field" for="identityInput">
+            <span>Prospect name / identity</span>
+            <input id="identityInput" type="text" placeholder="Auto-detected from URL, or enter manually" />
+          </label>
+
+          <div class="model-banner" id="modelBanner">
+            <span>Model used</span>
+            <strong>Big Five / OCEAN</strong>
+          </div>
+
+          <div class="layer-strip" role="tablist" aria-label="Analysis layers">
+            <button class="layer-tab is-active" type="button" data-layer="profile" role="tab" aria-selected="true">
+              <span>01</span>
+              Profile
+            </button>
+            <button class="layer-tab" type="button" data-layer="motives" role="tab" aria-selected="false">
+              <span>02</span>
+              Motives
+            </button>
+            <button class="layer-tab" type="button" data-layer="relate" role="tab" aria-selected="false">
+              <span>03</span>
+              Relate
+            </button>
+            <button class="layer-tab" type="button" data-layer="oci" role="tab" aria-selected="false">
+              <span>04</span>
+              OCI
+            </button>
+            <button class="layer-tab" type="button" data-layer="message" role="tab" aria-selected="false">
+              <span>05</span>
+              Message
+            </button>
+            <button class="layer-tab" type="button" data-layer="content" role="tab" aria-selected="false">
+              <span>06</span>
+              Feed
+            </button>
+          </div>
+
+          <article class="intelligence-board" id="activeLayer" aria-live="polite"></article>
+        </section>
+
+      </section>
+    </main>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
