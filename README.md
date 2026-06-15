@@ -2,6 +2,8 @@
 
 Static browser tools for building an ethical, sales-oriented customer personality profile from writing-style signals.
 
+For a terse shareable overview, see `problem-solution.md`.
+
 ## Main report
 
 Open `ocean-profile-report.html` to view the polished customer profile report for the Daniel Harper sample. The report includes:
